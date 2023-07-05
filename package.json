@@ -1,0 +1,29 @@
+{
+  "name": "biblioteca",
+  "version": "1.0.0",
+  "description": "Community library node.js introduction class",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/LuaMartz/LibraryNodejs.git"
+  },
+  "keywords": [
+    "Node",
+    "express",
+    "JavaSript"
+  ],
+  "author": "Luisa Martinez (LuArtemz)",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/LuaMartz/LibraryNodejs/issues"
+  },
+  "homepage": "https://github.com/LuaMartz/LibraryNodejs#readme",
+  "dependencies": {
+    "dotenv": "^16.3.1",
+    "express": "^4.18.2",
+    "mongoose": "^7.3.1"
+  }
+}
