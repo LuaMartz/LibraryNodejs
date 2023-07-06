@@ -14,7 +14,7 @@ const controllerBook = {
                 summary:summary,
                 isbn:isbn
             })
-            return res.json({msg:'create book'})
+            return res.json({msg:'Book created'})
         } catch (error) {
             return res.status(500).json({msg:error.message})              
         }
@@ -36,26 +36,27 @@ const controllerBook = {
             return res.status(500).json({msg:error.message})              
         }
     },
-    updateBook: async (req,res) =>{
+    updateBook: async (req, res) => {
         try {
-            const {id} = req.params
-            await Book.findByIdAndUpdate(id,
-                {
-                    title:title,
-                    author:author,
-                    summary:summary,
-                    isbn:isbn
-                }
-            )
-            return res.json({msg:'Update Book'})
+          const { id } = req.params;
+          const { title, author, summary, isbn } = req.body; // Agregado: Obtener los valores del cuerpo de la solicitud
+          await Book.findByIdAndUpdate(id, {
+            title: title,
+            author: author,
+            summary: summary,
+            isbn: isbn,
+          });
+          return res.json({ msg: 'Book Updated' });
         } catch (error) {
-            return res.status(500).json({msg:error.message})              
+          return res.status(500).json({ msg: error.message });
         }
-    },
+      },
+      
     deleteBook: async (req,res)=>{
         try {
             const {id} = req.params
             await Book.findByIdAndDelete(id)
+            res.json({msg:'Book Deleted'})
         } catch (error) {
             return res.status(500).json({msg:error.message})              
         }

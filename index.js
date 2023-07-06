@@ -19,8 +19,6 @@ app.get('/',(req,res) => {
 })
 
 // app.post('/api/author/create',controllerAuthor.create)
-
-
 mongoose.connect(process.env.MONGO_DB_URI)
 .then(()=> console.log('conect to DB'))
 .catch((err)=> console.error(err))

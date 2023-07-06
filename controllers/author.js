@@ -9,7 +9,7 @@ const controllerAuthor = {
             family_name: family_name
           });
           console.log('Author created:', author);
-          res.json({ msg: 'Created', author });
+          res.json({ msg: 'Author Created', author });
         } catch (error) {
           console.error(error);
           res.status(500).json({ msg: error.message });
@@ -42,7 +42,7 @@ const controllerAuthor = {
                 first_name:first_name,
                 family_name : family_name
                 })
-                res.json({msg:'Updated'})
+                res.json({msg:'Author Updated'})
         } catch (error) {
             return res.status(500).json({msg:error.message})                                    
         }
@@ -51,7 +51,7 @@ const controllerAuthor = {
         try {
             const {id} = req.params
             await Author.findByIdAndDelete(id)
-            res.json({msg:'Deleted'})
+            res.json({msg:'Author Deleted'})
         } catch (error) {
             return res.status(500).json({msg:error.message})                                         
         }

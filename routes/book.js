@@ -8,6 +8,6 @@ router.get('/',controllerBook.getBooks)
 router.get('/:id', controllerBook.getBookById)
 router.post('/create', controllerBook.create)
 router.patch('/update/:id',controllerBook.updateBook)
-router.delete('/delete/id',controllerBook.deleteBook)
+router.delete('/delete/:id',controllerBook.deleteBook)
 
 module.exports = router
