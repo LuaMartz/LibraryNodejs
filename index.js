@@ -2,17 +2,24 @@ const express = require('express')
 const mongoose = require('mongoose')
 require('dotenv').config()
 
-const controllerAuthor = require('./controllers/author')
+const authorRoutes = require('./routes/author');
+const bookRoutes = require('./routes/book')
 
 const app = express()
 const port = 3005
-app.set('port',port)
 
-app.get('/',(req,res)=>{
+// Middlewares
+app.set('port',port)
+app.use(express.json())
+app.use('/api/author',authorRoutes)
+app.use('/api/book',bookRoutes)
+
+app.get('/',(req,res) => {
     res.send('Hello World')
 })
 
-app.post('/api/author/create', controllerAuthor.create)
+// app.post('/api/author/create',controllerAuthor.create)
+
 
 mongoose.connect(process.env.MONGO_DB_URI)
 .then(()=> console.log('conect to DB'))
